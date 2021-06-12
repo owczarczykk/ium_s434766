@@ -9,8 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score, mean_squared_error, classification_report
 import numpy as np
 import pandas as pd
-from sacred import Experiment
-from sacred.observers import FileStorageObserver
+
 np.set_printoptions(suppress=False)
 
 
