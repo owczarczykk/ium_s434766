@@ -25,7 +25,6 @@ class LogisticRegressionModel(nn.Module):
 
 data_train = pd.read_csv("data_train.csv")
 data_test  = pd.read_csv("data_test.csv")
-data_val   = pd.read_csv("data_val.csv")
 FEATURES   =  ['age','hypertension','heart_disease','ever_married', 'avg_glucose_level', 'bmi']
 
 x_train = data_train[FEATURES].astype(np.float32)
