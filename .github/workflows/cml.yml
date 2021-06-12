@@ -1,0 +1,20 @@
+name: model-training
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: iterative/setup-cml@v1
+      - name: Train model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install numpy && pip install torch torchvision torchaudio && pip install pandas && pip install scikit-learn && pip  install python3-wget
+          python stroke-pytorch.py
+
+          cat metrics.txt >> report.md
+          cml-send-comment report.md
+
+
